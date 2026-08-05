@@ -16,7 +16,7 @@ module JScript
         script.gsub!("<inline_js>", "<script>")
         script.gsub!("</inline_js>", "</script>")
         script.gsub!("<inline_css>", "<style>")
-        script.gsub!("</inline_css", "</style>")
+        script.gsub!("</inline_css>", "</style>")
         return script
     end
 end
