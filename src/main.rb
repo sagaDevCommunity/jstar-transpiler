@@ -1,12 +1,13 @@
-require_relative transpiler
+require_relative 'transpiler'
 
 module JScript
-  extend self
   def main()
-    print "--- JScript v0.3 ---\n\nWelcome to JScript!\nEnter a line of JScript below."
+    print "--- JScript v0.4 ---\n\nWelcome to JScript!\nEnter a line of JScript below.\n\n"
     while true
-      puts "> "
-      transpile(gets.chomp)
+      print "> "
+      puts transpile(gets.chomp)
     end
   end
 end
+
+JScript.main()
