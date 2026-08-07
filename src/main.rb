@@ -1,20 +1,26 @@
 require_relative 'transpiler'
 
-module JScript
-  def main()
-    print "--- JScript v0.5 ---\n\nWelcome to JScript!\nEnter a line of JScript below.\n\n"
-    temp = ""
-    while true
-      print "> "
-      input = gets.chomp
-      if input == "#halt"
-        print temp
-        break
-      else
-        temp += transpile(input) + "\n"
-      end
-    end
-  end
-end
+puts "--- JScript v0.5 ---"
+puts "Welcome to JScript!"
+puts "Enter a line of JScript below"
 
-JScript.main()
+help_data = "Help data placeholder"
+
+temp = ""
+
+loop do
+  print "> "
+  input = gets.chomp
+  break if input == "#halt"
+  if input == "help"
+    puts help_data
+    redo # so it doesn't try to parse "help"
+  end
+
+  begin
+    result = transpile(input)
+  rescue => error
+    puts "Sorry! Failed to parse this file. Error: #{error}"
+  end
+  temp += result + "\n" # honestly what does this even do
+end
